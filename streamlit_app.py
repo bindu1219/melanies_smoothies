@@ -4,15 +4,16 @@ from snowflake.snowpark.functions import col
 import requests
 import pandas as pd
 
+
+#session = get_active_session()
+cnx=st.connection("snowflake")
+session = cnx.session()
+
 #Write directly to the app
 st.title(f"🥤 Customize Your Smoothie!🥤")
 st.write(
   """Choose the fruits you want in your custom Smoothie!.
   """)
-
-#session = get_active_session()
-cnx=st.connection("snowflake")
-session = cnx.session()
 
 name_on_order = st.text_input('Name on Smoothie:')
 st.write("The name on your Smoothie will be:", name_on_order)
