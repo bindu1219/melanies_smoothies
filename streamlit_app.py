@@ -11,7 +11,6 @@ st.write(
 
 
 
-
 cnx=st.connection("snowflake")
 session = cnx.session()
 
