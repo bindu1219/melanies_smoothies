@@ -41,9 +41,7 @@ if ingredients_list:
     fruityvice_response.raise_for_status()  # Raise error for bad HTTP status
     data = fruityvice_response.json()
     st.dataframe(data, use_container_width=True, key=f"{fruit_chosen}_nutrition")
-    except Exception as e:
-    st.error(f"Failed to fetch data for {fruit_chosen}: {e}")
-   
+ 
 
         
         st.dataframe(data=fruityvice_response.json(), use_container_width=True, key=f"{fruit_chosen}_nutrition")
