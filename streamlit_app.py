@@ -41,10 +41,6 @@ if ingredients_list:
     fruityvice_response.raise_for_status()  # Raise error for bad HTTP status
     data = fruityvice_response.json()
     st.dataframe(data, use_container_width=True, key=f"{fruit_chosen}_nutrition")
- 
-
-        
-        st.dataframe(data=fruityvice_response.json(), use_container_width=True, key=f"{fruit_chosen}_nutrition")
 
     # Submit button and insert logic
     my_insert_stmt = f"""
