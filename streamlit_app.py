@@ -38,6 +38,14 @@ if ingredients_list:
         search_on = pd_df.loc[pd_df['FRUIT_NAME'] == fruit_chosen, 'SEARCH_ON'].iloc[0]
         st.subheader(fruit_chosen + ' Nutrition Information')
         fruityvice_response = requests.get("https://fruityvice.com/api/fruit/" + search_on)
+    fruityvice_response.raise_for_status()  # Raise error for bad HTTP status
+    data = fruityvice_response.json()
+    st.dataframe(data, use_container_width=True, key=f"{fruit_chosen}_nutrition")
+except Exception as e:
+    st.error(f"Failed to fetch data for {fruit_chosen}: {e}")
+   
+
+        
         st.dataframe(data=fruityvice_response.json(), use_container_width=True, key=f"{fruit_chosen}_nutrition")
 
     # Submit button and insert logic
